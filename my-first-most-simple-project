@@ -1,0 +1,43 @@
+---
+title: "Portofolio_1_MTMA"
+author: "Tegar"
+date: "7/9/2021"
+output: html_document
+---
+
+```{r}
+library(readr)
+library(dplyr)
+library(tidyr)
+library(tidyverse)
+library(skimr)
+```
+
+```{r}
+dataset <- read.csv("country_wise_latest.csv")
+```
+
+```{r}
+glimpse(dataset$Country.Region)
+#Total sample country = 187
+```
+
+```{r}
+dataset %>% 
+  arrange(Confirmed) -> Arranged_data_confirmed
+```
+
+```{r}
+Top_Confirmed <- tail(Arranged_data_confirmed)
+```
+
+```{r}
+Top_Confirmed %>% 
+  group_by(Country.Region) %>% 
+  summarise(
+    Confirmed = Confirmed
+  ) -> Visualise_confirmed
+```
+
+```{r}
+barplot(Visualise_confirmed$Confirmed, main = "Top 6 Confirmed")
