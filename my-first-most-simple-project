@@ -3,6 +3,8 @@ title: "Portofolio_1_MTMA"
 author: "Tegar"
 date: "7/9/2021"
 output: html_document
+programming language: R
+IDE : RStudio
 ---
 
 ```{r}
